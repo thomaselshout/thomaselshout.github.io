@@ -181,6 +181,39 @@
       z-index: 200;
     }
 
+    /* ---------- Mobile social pills ---------- */
+
+    .social-pills {
+      display: none;
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(14, 36, 51, 0.12);
+      background: rgba(14, 36, 51, 0.04);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .social-pill:active {
+      transform: scale(0.97);
+    }
+
+    .social-pill img {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
     /* ---------- Typography ---------- */
 
     h1 {
@@ -437,6 +470,15 @@
       .header-socials { display: none; }
       .menu-toggle { display: block; }
 
+      /* Mobile social pills */
+      .social-pills {
+        display: flex;
+        gap: 8px;
+        padding: 0 var(--content-padding) 16px;
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+
       nav.main-nav {
         display: none;
         position: absolute;
@@ -512,6 +554,18 @@
 
   </div>
 </header>
+
+<!-- Mobile social pills (visible on mobile only, hidden on desktop) -->
+<div class="social-pills">
+  <a href="https://www.instagram.com/tomcarbon_" class="social-pill" target="_blank" rel="noopener">
+    <img src="/assets/icons/instagram.png" alt="">
+    Instagram
+  </a>
+  <a href="https://substack.com/@tomcarbon" class="social-pill" target="_blank" rel="noopener">
+    <img src="/assets/icons/substack.png" alt="">
+    Substack
+  </a>
+</div>
 
 <!-- INTRO (STRUCTURAL PATTERN APPLIED) -->
 <section class="section" id="intro">
