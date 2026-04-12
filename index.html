@@ -181,37 +181,64 @@
       z-index: 200;
     }
 
-    /* ---------- Mobile social pills ---------- */
+    /* ---------- Mobile sticky bottom bar ---------- */
 
-    .social-pills {
+    .social-bottom-bar {
       display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      background: var(--bg-light);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      justify-content: center;
+      gap: 32px;
+      padding: 10px 0 calc(10px + env(safe-area-inset-bottom, 0px));
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    .social-pill {
-      display: inline-flex;
+    .social-bottom-bar.hidden {
+      transform: translateY(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .social-bottom-bar a {
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 7px;
-      padding: 8px 16px;
-      border-radius: 100px;
-      border: 1px solid rgba(14, 36, 51, 0.12);
-      background: rgba(14, 36, 51, 0.04);
-      color: var(--text-dark);
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 400;
+      gap: 4px;
       text-decoration: none;
-      transition: background 0.2s ease, transform 0.15s ease;
       -webkit-tap-highlight-color: transparent;
     }
 
-    .social-pill:active {
-      transform: scale(0.97);
+    .social-bottom-bar a:active .bar-icon {
+      transform: scale(0.93);
     }
 
-    .social-pill img {
-      width: 16px;
-      height: 16px;
+    .bar-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease;
+    }
+
+    .bar-icon img {
+      width: 18px;
+      height: 18px;
       display: block;
+    }
+
+    .bar-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--text-muted);
     }
 
     /* ---------- Typography ---------- */
@@ -470,14 +497,9 @@
       .header-socials { display: none; }
       .menu-toggle { display: block; }
 
-      /* Mobile social pills */
-      .social-pills {
+      /* Mobile social bottom bar */
+      .social-bottom-bar {
         display: flex;
-        justify-content: center;
-        gap: 8px;
-        padding: 14px var(--content-padding) 16px;
-        max-width: var(--max-width);
-        margin: 0 auto;
       }
 
       nav.main-nav {
@@ -556,15 +578,19 @@
   </div>
 </header>
 
-<!-- Mobile social pills (visible on mobile only, hidden on desktop) -->
-<div class="social-pills">
-  <a href="https://www.instagram.com/tomcarbon_" class="social-pill" target="_blank" rel="noopener">
-    <img src="/assets/icons/instagram.png" alt="">
-    Instagram
+<!-- Mobile sticky bottom bar (visible on mobile only, hides at footer) -->
+<div class="social-bottom-bar" id="socialBar">
+  <a href="https://www.instagram.com/tomcarbon_" target="_blank" rel="noopener">
+    <div class="bar-icon">
+      <img src="/assets/icons/instagram.png" alt="">
+    </div>
+    <span class="bar-label">Instagram</span>
   </a>
-  <a href="https://substack.com/@tomcarbon" class="social-pill" target="_blank" rel="noopener">
-    <img src="/assets/icons/substack.png" alt="">
-    Substack
+  <a href="https://substack.com/@tomcarbon" target="_blank" rel="noopener">
+    <div class="bar-icon">
+      <img src="/assets/icons/substack.png" alt="">
+    </div>
+    <span class="bar-label">Substack</span>
   </a>
 </div>
 
@@ -745,7 +771,7 @@
 </section>
 
 <!-- ABOUT (STRUCTURAL PATTERN APPLIED) -->
-<section class="section pb-0" id="about">
+<section class="section" id="about">
 
   <div class="container">
     <div class="section-opener">
@@ -849,6 +875,25 @@
   function toggleMenu() {
     document.getElementById("mainNav").classList.toggle("open");
   }
+
+  // Hide sticky social bar when footer comes into view
+  (function() {
+    var bar = document.getElementById('socialBar');
+    var footer = document.querySelector('.site-footer');
+    if (!bar || !footer) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          bar.classList.add('hidden');
+        } else {
+          bar.classList.remove('hidden');
+        }
+      });
+    }, { threshold: 0 });
+
+    observer.observe(footer);
+  })();
 </script>
 
 </body>
