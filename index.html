@@ -4,35 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tom Carbon - Roaming Right</title>
-
+ 
   <link rel="icon" type="image/png" sizes="32x32" href="/logo/logo-16.png">
   <link rel="apple-touch-icon" href="/logo/logo-16.png">
-
+ 
   <!-- Fonts (merged) -->
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+ 
   <style>
     :root {
       --bg-light: #F4EDE4;
       --bg-dark: #0E2433;
       --accent: #C39A6B;
-
+ 
       --text-dark: #0E2433;
       --text-muted: #6B7280;
-
+ 
       --font-display: 'Libre Baskerville', serif;
       --font-body: 'Inter', sans-serif;
-
+ 
       --radius-lg: 28px;
       --content-padding: 56px;
       --max-width: 1280px;
     }
-
+ 
     /* ---------- Base ---------- */
-
+ 
     * { box-sizing: border-box; }
     html, body { height: 100%; }
-
+ 
     body {
       margin: 0;
       font-family: var(--font-body);
@@ -40,59 +40,59 @@
       color: var(--text-dark);
       line-height: 1.6;
     }
-
+ 
     a { color: inherit; text-decoration: none; }
-
+ 
     /* ---------- Layout primitives ---------- */
-
+ 
     .section { padding: 80px 0; }
-
+ 
     .section.pt-0 {
       padding-top: 0;
       padding-bottom: 0;
     }
-
+ 
     .section.pt-md { padding-top: 40px; }
-
+ 
     /* Your HTML uses pb-0 in About */
     .section.pb-0 { padding-bottom: 0; }
-
+ 
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 var(--content-padding);
     }
-
+ 
     .split {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
       align-items: center;
     }
-
+ 
     .split.align-top { align-items: start; }
-
+ 
     .centered { text-align: center; }
-
+ 
     /* ---------- Scalable structural pattern ---------- */
     .block-head {
       max-width: var(--max-width);
       margin: 0 auto 28px;
       padding: 0 var(--content-padding);
     }
-
+ 
     .block-body {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 var(--content-padding);
     }
-
+ 
     .block-body.split {
       align-items: start; /* top-align image with first line of content */
     }
-
+ 
     /* ---------- Editorial headings (same font as body) ---------- */
-
+ 
     .heading-body {
       font-family: var(--font-body);
       font-size: 20px;
@@ -101,9 +101,9 @@
       color: var(--text-dark);
       margin: 48px 0 16px;
     }
-
+ 
     /* ---------- Header ---------- */
-
+ 
     .site-header {
       position: sticky;
       top: 0;
@@ -111,7 +111,7 @@
       background: var(--bg-light);
       border-bottom: 1px solid rgba(0,0,0,0.05);
     }
-
+ 
     .header-inner {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -121,7 +121,7 @@
       justify-content: space-between;
       position: relative; /* for mobile nav positioning */
     }
-
+ 
     /* Logo */
     .logo {
       display: flex;
@@ -130,46 +130,46 @@
       font-size: 15px;
       font-weight: 500;
     }
-
+ 
     .logo img { height: 22px; display: block; }
-
+ 
     /* Navigation (desktop) */
     nav.main-nav {
       display: flex;
       gap: 32px;
       align-items: center;
     }
-
+ 
     nav.main-nav a {
       font-size: 14px;
       color: var(--text-muted);
     }
-
+ 
     /* Social icons (desktop only) */
     .header-socials {
       display: flex;
       gap: 16px;
       align-items: center;
     }
-
+ 
     .header-socials a {
       display: inline-flex;
       opacity: 0.75;
       transform: translateY(0);
       transition: opacity 0.25s ease, transform 0.25s ease;
     }
-
+ 
     .header-socials a:hover {
       opacity: 1;
       transform: translateY(-2px);
     }
-
+ 
     .header-socials img {
       width: 18px;
       height: 18px;
       display: block;
     }
-
+ 
     /* Burger menu */
     .menu-toggle {
       display: none;
@@ -180,9 +180,9 @@
       color: var(--text-dark);
       z-index: 200;
     }
-
+ 
     /* ---------- Mobile sticky bottom bar ---------- */
-
+ 
     .social-bottom-bar {
       display: none;
       position: fixed;
@@ -197,13 +197,13 @@
       padding: 10px 0 calc(10px + env(safe-area-inset-bottom, 0px));
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
-
+ 
     .social-bottom-bar.hidden {
       transform: translateY(100%);
       opacity: 0;
       pointer-events: none;
     }
-
+ 
     .social-bottom-bar a {
       display: flex;
       flex-direction: column;
@@ -212,11 +212,11 @@
       text-decoration: none;
       -webkit-tap-highlight-color: transparent;
     }
-
+ 
     .social-bottom-bar a:active .bar-icon {
       transform: scale(0.93);
     }
-
+ 
     .bar-icon {
       width: 32px;
       height: 32px;
@@ -226,13 +226,13 @@
       justify-content: center;
       transition: transform 0.15s ease;
     }
-
+ 
     .bar-icon img {
       width: 18px;
       height: 18px;
       display: block;
     }
-
+ 
     .bar-label {
       font-family: var(--font-body);
       font-size: 10px;
@@ -240,9 +240,9 @@
       letter-spacing: 0.03em;
       color: var(--text-muted);
     }
-
+ 
     /* ---------- Typography ---------- */
-
+ 
     h1 {
       font-family: var(--font-display);
       font-size: 64px;
@@ -251,7 +251,7 @@
       margin: 0 0 14px;
       letter-spacing: -0.02em;
     }
-
+ 
     h2 {
       font-family: var(--font-display);
       font-size: 28px;
@@ -260,7 +260,7 @@
       margin: 0 0 14px;
       letter-spacing: -0.01em;
     }
-
+ 
     .chapter-title {
       font-family: var(--font-display);
       font-size: 22px;
@@ -270,7 +270,7 @@
       letter-spacing: -0.01em;
       color: var(--text-dark);
     }
-
+ 
     .intro-subtitle {
       font-family: var(--font-body);
       font-weight: 600;
@@ -278,7 +278,7 @@
       color: var(--text-muted);
       margin: 0 0 22px;
     }
-
+ 
     .hero-eyebrow {
       font-family: var(--font-body);
       font-size: 12px;
@@ -289,7 +289,7 @@
       margin-bottom: 10px;
       display: block;
     }
-
+ 
     .hero-deck {
       font-family: var(--font-body);
       font-size: 20px;
@@ -298,17 +298,17 @@
       margin: 0 0 22px;
       max-width: none;
     }
-
+ 
     .text {
       font-family: var(--font-body);
       font-size: 16px;
       color: rgba(14,36,51,0.68);
       max-width: 560px;
     }
-
+ 
     .text + .text { margin-top: 0.75em; }
     .text.spaced {}
-
+ 
     .inline-link {
       color: inherit; /* keeps it editorial, not blue */
       text-decoration: none;
@@ -316,25 +316,25 @@
       padding-bottom: 1px;
       transition: border-color 0.2s ease, color 0.2s ease;
     }
-
+ 
     .inline-link:hover {
       border-bottom-color: rgba(14,36,51,0.8);
       color: var(--text-dark);
 }
-
-
+ 
+ 
     /* Keep longer Journey copy readable while titles remain full-width */
     #journey .text { max-width: 720px; }
-
+ 
     /* ---------- Visual ---------- */
-
+ 
     .visual {
       background: #E0D7CB;
       border-radius: var(--radius-lg);
       aspect-ratio: 4 / 3;
       overflow: hidden;
     }
-
+ 
     .visual img {
       width: 100%;
       height: 100%;
@@ -346,18 +346,18 @@
       display: grid;
       gap: 24px;
     }
-
+ 
     /* ---------- Buttons ---------- */
-
+ 
     .button-row {
       display: flex;
       gap: 16px;
       margin-top: 32px;
       flex-wrap: wrap;
     }
-
+ 
     .button-row.centered { justify-content: center; }
-
+ 
     .cta {
       background: var(--accent);
       color: white;
@@ -367,7 +367,7 @@
       font-weight: 600;
       display: inline-block;
     }
-
+ 
     .btn-secondary {
       background: rgba(0,0,0,0.06);
       color: var(--text-dark);
@@ -377,9 +377,9 @@
       font-weight: 600;
       display: inline-block;
     }
-
+ 
     /* ---------- Section opener ---------- */
-
+ 
     .section-opener {
       display: flex;
       justify-content: center;
@@ -387,7 +387,7 @@
       gap: 10px;
       margin-bottom: 32px;
     }
-
+ 
     .section-opener h2 {
       font-family: var(--font-body);
       font-size: 12px;
@@ -397,42 +397,42 @@
       color: var(--text-muted);
       margin: 0;
     }
-
+ 
     .section-logo {
       height: 14px;
       width: auto;
       display: block;
     }
-
+ 
     .section-subtitle {
       font-size: 18px;
       font-weight: 600;
       margin: 40px 0 16px;
       color: var(--text-dark);
     }
-
+ 
     /* ---------- Footer ---------- */
-
+ 
     .site-footer {
       background: var(--bg-dark);
       color: white;
       padding: 80px 0;
       width: 100%;
     }
-
+ 
     .site-footer p {
       color: rgba(255,255,255,0.7);
       font-size: 14px;
       margin: 0;
     }
-
+ 
     .site-footer strong {
       display: inline-block;
       margin-bottom: 12px;
       font-size: 14px;
       color: white;
     }
-
+ 
     .site-footer a {
       color: rgba(255,255,255,0.6);
       font-size: 14px;
@@ -442,71 +442,71 @@
       display: inline-block;
       margin-bottom: 6px;
     }
-
+ 
     .site-footer a:hover {
       color: white;
       text-decoration-color: white;
     }
-
+ 
     .footer-inner {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 var(--content-padding);
     }
-
+ 
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 48px;
     }
-
+ 
     .footer-brand {
       display: flex;
       gap: 14px;
       align-items: flex-start;
     }
-
+ 
     .footer-logo {
       width: 40px;
       height: auto;
       opacity: 0.9;
       display: block;
     }
-
+ 
     .muted { opacity: 0.5; }
-
+ 
     /* ---------- Responsive ---------- */
-
+ 
     @media (max-width: 900px) {
       :root { --content-padding: 24px; }
-
+ 
       .header-inner {
         padding: 16px var(--content-padding);
       }
-
+ 
       .split {
         grid-template-columns: 1fr;
         gap: 40px;
       }
-
+ 
       h1 {
         font-size: 44px;
         letter-spacing: -0.02em;
       }
-
+ 
       .header-socials { display: none; }
       .menu-toggle { display: block; }
-
+ 
       /* Mobile social bottom bar */
       .social-bottom-bar {
         display: flex;
       }
-
+ 
       /* Show hero image right after heading on mobile */
       #intro .block-body.split > .visual {
         order: -1;
       }
-
+ 
       nav.main-nav {
         display: none;
         position: absolute;
@@ -522,50 +522,50 @@
         align-items: center;
         text-align: center;
       }
-
+ 
       nav.main-nav a {
         font-size: 16px;
         padding: 6px 0;
       }
-
+ 
       nav.main-nav.open { display: flex; }
-
+ 
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 32px;
       }
-
+ 
       /* Block pattern uses same padding as container on mobile */
       .block-head,
       .block-body {
         padding: 0 var(--content-padding);
       }
     }
-
+ 
     @media (min-width: 901px) {
       .text.spaced { margin-bottom: 48px; }
     }
   </style>
 </head>
-
+ 
 <body>
-
+ 
 <header class="site-header">
   <div class="header-inner">
-
+ 
     <!-- Logo -->
     <a href="/" class="logo">
       <img src="/logo/logo-128.png" alt="Tom Carbon logo">
     </a>
-
+ 
     <!-- Navigation -->
     <nav class="main-nav" id="mainNav">
       <a href="#journey">Journey</a>
       <a href="#about">About</a>
       <a href="https://substack.com/@tomcarbon" target="_blank">Stories</a>
     </nav>
-
-    <!-- Socials -->
+ 
+    <!-- Socials (desktop) — Polarsteps added -->
     <div class="header-socials">
       <a href="https://www.instagram.com/tomcarbon_" target="_blank" aria-label="Instagram">
         <img src="/assets/icons/instagram.png" alt="">
@@ -573,17 +573,20 @@
       <a href="https://substack.com/@tomcarbon" target="_blank" aria-label="Substack">
         <img src="/assets/icons/substack.png" alt="">
       </a>
+      <a href="https://www.polarsteps.com/ThomasElshout" target="_blank" aria-label="Polarsteps">
+        <img src="/assets/icons/polarsteps.png" alt="">
+      </a>
     </div>
-
+ 
     <!-- Burger menu (mobile only) -->
     <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">
       ☰
     </button>
-
+ 
   </div>
 </header>
-
-<!-- Mobile sticky bottom bar (visible on mobile only, hides at footer) -->
+ 
+<!-- Mobile sticky bottom bar — Polarsteps added -->
 <div class="social-bottom-bar" id="socialBar">
   <a href="https://www.instagram.com/tomcarbon_" target="_blank" rel="noopener">
     <div class="bar-icon">
@@ -597,11 +600,17 @@
     </div>
     <span class="bar-label">Substack</span>
   </a>
+  <a href="https://www.polarsteps.com/ThomasElshout" target="_blank" rel="noopener">
+    <div class="bar-icon">
+      <img src="/assets/icons/polarsteps.png" alt="">
+    </div>
+    <span class="bar-label">Polarsteps</span>
+  </a>
 </div>
-
+ 
 <!-- INTRO (STRUCTURAL PATTERN APPLIED) -->
 <section class="section" id="intro">
-
+ 
   <div class="block-head">
     <h1>Hello, I'm Tom 👋🏼</h1>
     <p class="hero-deck">Nice to meet you!</p> 
@@ -612,7 +621,7 @@
       <p class="text">
         Have you ever noticed how a place changes when you move through it slowly?
       </p>
-
+ 
       <p class="text">
         I travel by bicycle for food and outdoor adventures. Not because it's the most efficient 
         way to get somewhere, but because it's the only speed where you actually smell the bread 
@@ -620,7 +629,7 @@
         planned. Just fast enough to cover ground; just slow enough to catch the things that make a 
         place feel real.
       </p>
-
+ 
       <p class="text">
         My bike and curiosity have taken me to many countries with friends,
         <a href="http://1bike2stories.com/" target="_blank" rel="noopener" class="inline-link">
@@ -631,36 +640,36 @@
         with my partner. Every trip confirmed the same thing: a bicycle moves at a pace that 
         feels human. One where experiences have time to settle before the next one arrives.
       </p>
-
+ 
       <p class="text">
        For years I squeezed these adventures into short holidays; always returning just when 
         it started to get interesting. This year I'm finally doing it differently. Ten weeks, 
         three Nordic countries, and the question of what it actually means to be <i>Roaming Right</i>.
       </p>
-
+ 
       <div class="button-row">
         <a href="#journey" class="cta">Journey</a>
         <a href="#about" class="btn-secondary">About me</a>
       </div>
     </div>
-
+ 
     <div class="visual">
       <img src="/assets/images/Hero-image4.jpg" alt="Tom Carbon">
     </div>
   </div>
-
+ 
 </section>
-
+ 
 <!-- ================= JOURNEY ================= -->
 <section class="section" id="journey">
-
+ 
   <div class="container">
     <div class="section-opener">
       <img src="/logo/logo-16.png" class="section-logo" alt="">
       <h2>Journey</h2>
     </div>
   </div>
-
+ 
   <div class="block-head"> 
     <span class="hero-eyebrow">Summer 2026</span> 
     <h1>Roaming Right</h1> 
@@ -668,11 +677,11 @@
   </div>
   
  <div class="block-body split">
-
+ 
   <!-- LEFT COLUMN: TEXT -->
   <div>
     <span class="hero-eyebrow">Where it started</span>
-
+ 
     <p class="text">
       I grew up in the Netherlands, where nature is something you plan in advance and share with a 
       few million others on the same sunny afternoon. We have bike paths, sure, and plenty of carefully 
@@ -681,7 +690,7 @@
       pretty simple: a bit of space, some fresh air and the occasional meal that doesn't come wrapped in 
       plastic. And yet those basics feel increasingly like a luxury.
     </p>
-
+ 
     <p class="text">
       So when I first read about <i>allemansrätten</i>, the Nordic right to roam, something clicked. In 
       Norway, Sweden and Finland, you can pitch your tent on someone's land without asking, pick wild berries 
@@ -693,16 +702,16 @@
     </p>
     
     <br>
-
+ 
     <span class="hero-eyebrow">The Traveling Table</span>
-
+ 
     <p class="text">
       I carry a small folding table on my bike. I realize that it may sound ridiculous; but the thing is, 
       it changes everything. A table turns a random patch of grass into a place where something can happen. You 
       set it down, put a cup of coffee on it and suddenly you're not just passing through anymore; you're 
       somewhere.
     </p>
-
+ 
     <p class="text">
       At every stop, whatever arrives on the table becomes the story. A handful of wild blueberries a host 
       picked that morning. A bowl of soup cooked on a campfire by someone whose name I can't pronounce but 
@@ -711,29 +720,29 @@
       of them I'm hoping to stumble into; sitting down at someone else's table with the curiosity of a guest 
       and the appetite of someone who's been pedalling since breakfast.
     </p>
-
+ 
   </div>
-
+ 
   <!-- RIGHT COLUMN: IMAGE STACK -->
   <div class="journey-media-stack">
-
+ 
     <div class="visual">
       <img src="/assets/images/Downhill_Spain.jpg" alt="Cycling through nature" loading="lazy">
     </div>
-
+ 
     <div class="visual">
       <img src="/assets/images/Sunset_bay_Spain.jpg" alt="Camping in nature" loading="lazy">
     </div>
-
+ 
   </div>
-
+ 
 </div>
-
+ 
   <!-- ROUTE -->
   <div class="block-head" style="margin-top: 56px;">
     <span class="hero-eyebrow">The Route</span>
   </div>
-
+ 
   <div class="block-body split">
     <!-- LEFT COLUMN -->
     <div>
@@ -744,7 +753,7 @@
         where it still feels right to sleep in the open and set up the table. Some of the best meals I've had on 
         previous trips came from taking a turn I hadn't planned, and I'd like to keep that door wide open.
       </p>
-
+ 
       <p class="text">
         Will every meal be a scenic experience? Probably not. There will be rain, there will be mosquitoes and 
         there will be evenings where dinner is instant noodles eaten in a hurry because the wind picked up. But 
@@ -762,7 +771,7 @@
         </a>
       </div>
     </div>
-
+ 
     <!-- RIGHT COLUMN -->
     <div class="visual">
       <img
@@ -772,24 +781,24 @@
       >
     </div>
   </div>
-
+ 
 </section>
-
+ 
 <!-- ABOUT (STRUCTURAL PATTERN APPLIED) -->
 <section class="section" id="about">
-
+ 
   <div class="container">
     <div class="section-opener">
       <img src="/logo/logo-16.png" class="section-logo" alt="">
       <h2>About Me</h2>
     </div>
   </div>
-
+ 
   <div class="block-head">
     <span class="hero-eyebrow">About</span>
     <h1>Tom Carbon</h1>
   </div>
-
+ 
   <div class="block-body split">
     <div>
       <p class="text">
@@ -798,18 +807,18 @@
         I once managed to turn a broken bicycle chain in Cambodia into a three-hour dinner invitation. 
         That kind of thing tends to happen when you travel slowly enough.
       </p>
-
+ 
       <p class="text">
         Carbon arrived later. Literally.
       </p>
-
+ 
       <p class="text">
         For a long time I made the same choices many of us make. Flying without thinking twice, eating 
         whatever was convenient, moving on to the next thing before the last one had properly landed. Not 
         because I didn't care; it just honestly never crossed my mind that the slower version might be 
         the more interesting one.
       </p>
-
+ 
       <p class="text">
         That shifted gradually, through meeting people along the way who live closely with what's around 
         them. People who cook with ingredients they picked that morning, who heat their house with wood from 
@@ -817,29 +826,29 @@
         I first noticed how much creativity hides in ordinary habits; in what people eat, how they get around, 
         how they turn a place into home with whatever the land gives them.
       </p>
-
+ 
       <p class="text">
         I'm still after the same things: good meals, landscapes that make me forget my phone exists and people 
         who build their lives around being outside. Just with a bit more awareness of the trail I leave behind. 
         Less rush, more attention. And still very much 100% Tom Carbon; the low-carbon version just happens to 
         be the more interesting one.
       </p>
-
+ 
       <br>
     </div>
-
+ 
     <div class="visual">
       <img src="/assets/images/Tom_Carbon_side.png" alt="">
     </div>
   </div>
-
+ 
 </section>
-
+ 
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
-
+ 
       <!-- Brand block -->
       <div class="footer-brand">
         <img src="/logo/logo-128.png" alt="Tom Carbon logo" class="footer-logo">
@@ -848,7 +857,7 @@
           <p>Follow along via Substack or Instagram.</p>
         </div>
       </div>
-
+ 
       <!-- Explore -->
       <div>
         <strong>Explore</strong><br/>
@@ -856,37 +865,38 @@
         <a href="#journey">Journey</a><br/>
         <a href="https://www.instagram.com/tomcarbon_" target="_blank" rel="noopener">Photos</a>
       </div>
-
+ 
       <!-- Info -->
       <div>
         <strong>Info</strong><br/>
         <a href="#about">About</a><br/>
         <span class="muted">Contact</span>
       </div>
-
-      <!-- Connect -->
+ 
+      <!-- Connect — Polarsteps added -->
       <div>
         <strong>Connect</strong><br/>
         <a href="https://substack.com/@tomcarbon" target="_blank" rel="noopener">Substack</a><br/>
         <a href="https://www.instagram.com/tomcarbon_" target="_blank" rel="noopener">Instagram</a><br/>
-        <a href="https://www.youtube.com/@cyclingthom" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.youtube.com/@cyclingthom" target="_blank" rel="noopener">YouTube</a><br/>
+        <a href="https://www.polarsteps.com/ThomasElshout" target="_blank" rel="noopener">Polarsteps</a>
       </div>
-
+ 
     </div>
   </div>
 </footer>
-
+ 
 <script>
   function toggleMenu() {
     document.getElementById("mainNav").classList.toggle("open");
   }
-
+ 
   // Hide sticky social bar when footer comes into view
   (function() {
     var bar = document.getElementById('socialBar');
     var footer = document.querySelector('.site-footer');
     if (!bar || !footer) return;
-
+ 
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -896,10 +906,10 @@
         }
       });
     }, { threshold: 0 });
-
+ 
     observer.observe(footer);
   })();
 </script>
-
+ 
 </body>
 </html>
